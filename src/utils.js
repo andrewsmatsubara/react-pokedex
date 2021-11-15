@@ -1,10 +1,15 @@
-const URL = 'https://pokeapi.co/api/v2/';
+export const fetchAPI = async () => {
+  const URL = 'https://pokeapi.co/api/v2/';
+  const data = await fetch(URL);
+  const result = data.json();
 
-const fetchAPI = async () => {
- const data = await fetch(URL);
- const result = data.json();
-
- return result;
+  return result;
 }
 
-export default fetchAPI;
+export const fetchPokemon = async () => {
+  const URL = 'https://pokeapi.co/api/v2/pokemon/';
+  const data = await fetch(URL);
+  const result = data.json();
+
+  return result;
+}
