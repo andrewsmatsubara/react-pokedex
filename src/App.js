@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from './pages/Main';
+import Provider from './provider/Provider';
 
 function App() {
   return (
-        <Switch>
-          <Route exact path="/" component={Main} />
-        </Switch>
+    <Provider>
+      <Switch>
+        <Route exact path="/" component={Main} />
+      </Switch>
+    </Provider>
   );
 }
 
