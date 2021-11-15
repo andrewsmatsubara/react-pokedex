@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import Context from '../context/Context';
 import PropTypes from 'prop-types';
-import fetchAPI from '../utils';
+import { fetchAPI } from '../utils';
 
 function Provider({ children }) {
   const [data, setData] = useState([]);
+  const [option, setOption] = useState('ability');
 
   const contextValues = {
     data,
     setData,
+    option,
+    setOption,
   }
 
   const fetchData = async () => {
