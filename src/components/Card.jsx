@@ -8,7 +8,6 @@ function Card({ url }) {
   const fetchURL = async () => {
     const response = await fetch(url);
     const results = response.json();
-    console.log(results);
     return results;
   }
 

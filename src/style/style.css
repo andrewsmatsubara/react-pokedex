@@ -1,12 +1,19 @@
 .header {
   display: flex;
   background-color: aquamarine;
-  height: 100px;
+  height: 200px;
+  width: 100%;
+}
+
+.main-page {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .pokemon-card {
   align-items: center;
-  background-color: aliceblue;
+  background-color:moccasin;
   border: 2px black solid;
   border-radius: 5%;
   cursor: pointer;
@@ -23,4 +30,10 @@
   flex-flow: row wrap;
   justify-content: space-around;
   margin: 20px;
+}
+
+.footer {
+  background-color: aquamarine;
+  height: 200px;
+  width: 100%;
 }
