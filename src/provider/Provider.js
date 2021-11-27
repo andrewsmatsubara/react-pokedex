@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Context from '../context/Context';
 import PropTypes from 'prop-types';
-import { fetchAPI, fetchPokemonAPI, fetchPokemonsInfo } from '../utils';
+import { fetchAPI, fetchPokemonAPI } from '../utils';
 
 function Provider({ children }) {
   const [category, setCategory] = useState([]);
@@ -34,9 +34,6 @@ function Provider({ children }) {
 
   useEffect(() => {
     fetchCategory();
-  }, []);
-
-  useEffect(() => {
     fetchPokemons();
   }, []);
 

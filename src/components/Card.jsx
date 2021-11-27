@@ -4,7 +4,7 @@ function Card({ url }) {
   const [id, setId] = useState();
   const [picture, setPicture] = useState();
   const [name, setName] = useState();
-  
+
   const fetchURL = async () => {
     const response = await fetch(url);
     const results = response.json();

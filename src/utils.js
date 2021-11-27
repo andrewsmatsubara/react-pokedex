@@ -7,7 +7,7 @@ export const fetchAPI = async () => {
 }
 
 export const fetchPokemonAPI = async () => {
-  const URL = `https://pokeapi.co/api/v2/pokemon/`;
+  const URL = `https://pokeapi.co/api/v2/pokemon?limit=151`;
   const data = await fetch(URL);
   const result = data.json();
 
