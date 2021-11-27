@@ -6,10 +6,17 @@ export const fetchAPI = async () => {
   return result;
 }
 
-export const fetchPokemonAPI = async (id) => {
-  const URL = `https://pokeapi.co/api/v2/pokemon/${id}`;
+export const fetchPokemonAPI = async () => {
+  const URL = `https://pokeapi.co/api/v2/pokemon/`;
   const data = await fetch(URL);
   const result = data.json();
+
+  return result;
+}
+
+export const fetchPokemonsInfo = async (url) => {
+  const response = await fetch(url);
+  const result = response.json();
 
   return result;
 }

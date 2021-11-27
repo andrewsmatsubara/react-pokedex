@@ -6,7 +6,6 @@ import Context from "../context/Context";
 
 function Main() {
   const { pokemons } = useContext(Context);
-  const { response } = pokemons;
 
   return (
     <div>
@@ -15,8 +14,10 @@ function Main() {
         Página Principal
       </h1>
       <Search />
-      {console.log(pokemons)}
-      {response === undefined ? <h1>Loading...</h1> : Object.values(response).map((pokemon) => <Card id={pokemon.response.id} /> )}
+      <div className='card-mosaic'>
+      {pokemons === undefined ? <h1>Loading...</h1> : Object.values(pokemons).map((pokemon) => <Card key={pokemon.name} url={pokemon.url} /> )}
+      </div>
+    <button>Carregar mais</button>
     </div>
   )
 }

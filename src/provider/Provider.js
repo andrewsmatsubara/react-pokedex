@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import Context from '../context/Context';
 import PropTypes from 'prop-types';
-import { fetchAPI, fetchPokemonAPI } from '../utils';
+import { fetchAPI, fetchPokemonAPI, fetchPokemonsInfo } from '../utils';
 
 function Provider({ children }) {
+  const [category, setCategory] = useState([]);
   const [data, setData] = useState([]);
   const [option, setOption] = useState('ability');
   const [pokemons, setPokemons] = useState([]);
 
   const contextValues = {
+    category,
+    setCategory,
     data,
     setData,
     option,
@@ -17,20 +20,20 @@ function Provider({ children }) {
     setPokemons,
   }
 
-  const fetchData = async () => {
+  const fetchCategory = async () => {
     const response = await fetchAPI();
-    setData(response);
+    setCategory(response);
   }
 
   const fetchPokemons = async () => {
-    for (let i = 1; i < 10; i += 1) {
-      const response = await fetchPokemonAPI(i);
-      setPokemons([{...pokemons, response}]);
-    }
+      const response = await fetchPokemonAPI();
+      setPokemons(response.results);
   }
 
+  console.log(pokemons);
+
   useEffect(() => {
-    fetchData();
+    fetchCategory();
   }, []);
 
   useEffect(() => {

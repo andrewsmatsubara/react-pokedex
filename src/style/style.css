@@ -3,3 +3,24 @@
   background-color: aquamarine;
   height: 100px;
 }
+
+.pokemon-card {
+  align-items: center;
+  background-color: aliceblue;
+  border: 2px black solid;
+  border-radius: 5%;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column wrap;
+  height: 250px;
+  justify-content: center;
+  margin: 1px;
+  width: 200px;
+}
+
+.card-mosaic {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 20px;
+}

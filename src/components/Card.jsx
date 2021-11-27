@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-function Card({ sprite, name, id }) {
+function Card({ url }) {
+  const [id, setId] = useState();
+  const [picture, setPicture] = useState();
+  const [name, setName] = useState();
+  
+  const fetchURL = async () => {
+    const response = await fetch(url);
+    const results = response.json();
+    console.log(results);
+    return results;
+  }
+
+  const setInfo = async () => {
+    const response = await fetchURL();
+    setId(response.id)
+    setPicture(response.sprites.front_default)
+    setName(response.name);
+  }
+
+  useEffect(() => {
+    setInfo();
+  }, []);
 
   return (
-    <div>
+    <button type="button" className='pokemon-card'>
       <p>{`#${id}`}</p>
-      <img src={sprite} alt={name} />
+      <img src={picture} alt={name} />
       <p>{name}</p>
-    </div>
+    </button>
   )
 }
 
