@@ -1,33 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Card({ url }) {
-  const [id, setId] = useState();
-  const [picture, setPicture] = useState();
-  const [name, setName] = useState();
-
-  const fetchURL = async () => {
-    const response = await fetch(url);
-    const results = response.json();
-    return results;
-  }
-
-  const setInfo = async () => {
-    const response = await fetchURL();
-    setId(response.id)
-    setPicture(response.sprites.front_default)
-    setName(response.name);
-  }
-
-  useEffect(() => {
-    setInfo();
-  }, []);
+function Card(props) {
+  console.log(props);
 
   return (
-    <button type="button" className='pokemon-card'>
-      <p>{`#${id}`}</p>
-      <img src={picture} alt={name} />
-      <p>{name}</p>
-    </button>
+    <Link className="card-link" to={`${props.id}`} >
+      <div className='pokemon-card' >
+        { <p>{`#${props.id}`}</p>}
+        {<img src={props.sprites.front_default} alt={props.name} />}
+        {<p>{props.name}</p> }
+      </div>
+    </Link>
   )
 }
 
