@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Context from "../context/Context";
 
 function Search() {
-  const { data, option, setOption } = useContext(Context);
+  const { category, option, setOption } = useContext(Context);
 
   const handleChange = ({ target }) => {
     setOption(target.value);
@@ -10,7 +10,7 @@ function Search() {
   return (
     <div>
       <select value={option} onChange={handleChange}>
-        {Object.keys(data).map((categories) => <option key={categories}>{categories}</option>)}
+        {Object.keys(category).map((categories) => <option key={categories}>{categories}</option>)}
       </select>
       <button type="button">Buscar</button>
     </div>

@@ -1,5 +1,47 @@
 .header {
   display: flex;
   background-color: aquamarine;
-  height: 100px;
+  height: 200px;
+  width: 100%;
+}
+
+.main-page {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.pokemon-card {
+  align-items: center;
+  background-color:moccasin;
+  border: 2px black solid;
+  border-radius: 5%;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column wrap;
+  height: 250px;
+  justify-content: center;
+  margin: 1px;
+  width: 200px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-mosaic {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.footer {
+  align-items: center;
+  background-color: aquamarine;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  width: 100%;
 }
