@@ -8,6 +8,8 @@ import Context from "../context/Context";
 function Main() {
   const { finalPokemon } = useContext(Context);
 
+  console.log(finalPokemon);
+
   return (
     <div className="main-page">
       <Header />
@@ -16,8 +18,7 @@ function Main() {
       </h1>
       {/* <Search /> */}
       <div className='card-mosaic'>
-      {console.log(finalPokemon)}
-      {finalPokemon === undefined ? <h1>Loading...</h1> : Object.values(finalPokemon).map((pokemon) => <Card key={pokemon.id} id={pokemon.id} name={pokemon.name} img={pokemon.sprites} /> )} 
+      {finalPokemon === undefined ? <h1>Loading...</h1> : finalPokemon.map((pokemon) => <Card key={pokemon.id} id={pokemon.id} name={pokemon.name} /*img={pokemon.sprites.front_default}*/ /> )} 
       </div>
     <Footer />
     </div>
