@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Context from '../context/Context';
 import PropTypes from 'prop-types';
 import { fetchAPI, fetchPokemonAPI } from '../utils';
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 function Provider({ children }) {
   const [category, setCategory] = useState([]);
@@ -36,8 +36,7 @@ function Provider({ children }) {
     setAux
   }
 
-  const location = useLocation();
-  console.log(location.pathname);
+  // const location = useLocation();
   
   const fetchCategory = async () => {
     const response = await fetchAPI();
@@ -48,7 +47,7 @@ function Provider({ children }) {
     const response = await fetchPokemonAPI();
     setPokemons(response.results);
 
-    const pokeURL = response.results.map((pokemon) => fetch(pokemon.url).then((url) => url.json()));
+    const pokeURL = response.results.map((pokemon) => fetch(pokemon.url).then((url) => url.json().then((poke) => poke)));
 
     setFinalPokemon(pokeURL);
 

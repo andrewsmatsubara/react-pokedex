@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 
-function Card(props) {
-  console.log(props);
-
+function Card({ id, name, img }) {
   return (
-    <Link className="card-link" to={`${props.id}`} >
+    <Link className="card-link" to={`${id}`} >
       <div className='pokemon-card' >
-        { <p>{`#${props.id}`}</p>}
-        {<img src={props.sprites.front_default} alt={props.name} />}
-        {<p>{props.name}</p> }
+        <p>{`#${id}`}</p>
+        {/* {<img src={img} alt={name} />} */}
+        <p>{`${name}`}</p>
       </div>
     </Link>
   )
